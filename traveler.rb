@@ -13,6 +13,10 @@ class Traveler
     @itineraries.push(itinerary)
   end
 
+  def remove_itinerary(itinerary)
+    @itineraries.pop(itinerary)
+  end
+
   def itinerary_listing
     @itineraries.each do |itinerary|
       puts "#{itinerary.name} (#{itinerary.sites})"
@@ -20,9 +24,7 @@ class Traveler
   end
 
   def print_itinerary(itinerary)
-  end
-
-  def random_itinerary
+    #Write code to print a particular itinerary
   end
 
 end

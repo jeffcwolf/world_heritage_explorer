@@ -39,11 +39,6 @@ describe Site do
 
     end
 
-    it "has a default interest level of 0 initialized" do
-
-      expect(@site.interest).to eq(0)
-
-    end
 
   end
 
@@ -51,8 +46,7 @@ describe Site do
 
     before do
       $stdout = StringIO.new
-      @initial_interest = 6
-      @site = Site.new("Aachen", "Germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany", @initial_interest)
+      @site = Site.new("Aachen", "Germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany")
     end
 
     it "has a string representation" do

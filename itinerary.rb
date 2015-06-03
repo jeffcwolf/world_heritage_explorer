@@ -17,6 +17,11 @@ class Itinerary
     @sites.pop(site)
   end
 
+  def generate_random
+    #Write to code generate a random itinerary
+    #i.e. a list of random sites, with a size and a name
+  end
+
   def print_stats(itinerary)
     puts "\n#{itinerary}'s Stats:"
 

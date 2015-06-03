@@ -27,12 +27,12 @@ SITE [State & Behavior]
 ITINERARY [State & Behavior]
   An Itinerary object has various attributes, including a name, description of the itinerary, and the collection of site objects it contains.
 
-  An itinerary also has various behaviors (methods). It can add or remove a site object to/from its collection, and it can print summary stats about itself (i.e about its collection).
+  An itinerary also has various behaviors (methods). It can add or remove a site object to/from its collection; it can generate a random itinerary (i.e. choose a random list of sites); and it can print summary stats about itself (i.e about its collection).
 
 TRAVELER [State & Behavior]
   A Traveler object has various attributes, including a name, and the collection of Itinerary objects associated with it (i.e. that it contains).
 
-  A traveler object also has various behaviors (methods). It can
+  A traveler object also has various behaviors (methods). It can add or remove an itinerary object to/from its collection; it can print a listing of its collection of itineraries; and it can print a particular itinerary.
 
 
 The program should be developed using TDD (RSpec).

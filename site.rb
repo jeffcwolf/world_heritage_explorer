@@ -1,19 +1,17 @@
 class Site
 
   attr_reader :name, :country, :region, :type, :description
-  attr_accessor :interest
 
-  def initialize(name, country, region, type, description="", interest=0)
+  def initialize(name, country, region, type, description="")
     @name = name.capitalize
     @country = country.capitalize
     @region = region
     @type = type
     @description = description
-    @interest = interest
   end
 
   def to_s
-    "The #{@type} site, #{@name}, is located in #{@country} (#{@region} region). My interest level is #{@interest} (out of 10)."
+    "The #{@type} site, #{@name}, is located in #{@country} (#{@region} region)."
   end
 
   def summarise
