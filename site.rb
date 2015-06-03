@@ -18,11 +18,11 @@ class Site
     "#{@name} (#{@country}): #{@description}."
   end
 
-  def high_interest?
-    @interest >= 7 ? true : false
-  end
+  # def high_interest?
+  #   @interest >= 7 ? true : false
+  # end
 
-  def itinerary_list
+  def itineraries_belongs_to
     #Write a method (using TDD) that prints out which itineraries
     #the site object belongs to
   end

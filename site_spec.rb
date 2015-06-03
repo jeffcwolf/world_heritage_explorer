@@ -51,7 +51,7 @@ describe Site do
 
     it "has a string representation" do
 
-      expect(@site.to_s).to eq("The cultural site, Aachen, is located in Germany (Europe and North America region). My interest level is 6 (out of 10).")
+      expect(@site.to_s).to eq("The cultural site, Aachen, is located in Germany (Europe and North America region).")
 
     end
 
@@ -60,33 +60,6 @@ describe Site do
       expect(@site.summarise).to eq("Aachen (Germany): It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany.")
 
     end
-
-  end
-
-  context "with an interest level >= 7" do
-
-    before do
-      $stdout = StringIO.new
-      @initial_interest = 7
-      @site = Site.new("Aachen", "Germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany", @initial_interest)
-    end
-
-    it "is of high interest" do
-      expect(@site.high_interest?).to eq(true)
-    end
-  end
-
-  context "with an interest level < 7" do
-    before do
-      $stdout = StringIO.new
-      @initial_interest = 3
-      @site = Site.new("Aachen", "Germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany", @initial_interest)
-    end
-
-    it "is not of high interest" do
-      expect(@site.high_interest?).to eq(false)
-    end
-
 
   end
 
