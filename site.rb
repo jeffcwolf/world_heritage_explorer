@@ -1,6 +1,6 @@
 class Site
 
-  attr_reader :name, :country, :region, :type, :description
+  attr_accessor :name, :country, :region, :type, :description
 
   def initialize(name, country, region, type, description="")
     @name = name.capitalize
@@ -10,9 +10,9 @@ class Site
     @description = description
   end
 
-  def to_s
-    "The #{@type} site, #{@name}, is located in #{@country} (#{@region} region)."
-  end
+  # def to_s
+  #   "The #{@type} site, #{@name}, is located in #{@country} (#{@region} region)."
+  # end
 
   def summarise
     "#{@name} (#{@country}): #{@description}."
@@ -32,8 +32,20 @@ end
 
 #Example Code Workaround
 
-# if __FILE__ == $0
+if __FILE__ == $0
 
-#   #Example Code here
+  site1 = Site.new("aachen Cathedral", "germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany")
 
-# end
+  site2 = Site.new("wadden sea", "germany", "Europe and North America", "natural")
+
+  site3 = Site.new("masada", "israel", "Europe and North America", "natural", "Masada is a dramatically located site of great natural beauty overlooking the Dead Sea, a rugged natural fortress on which the Judaean king Herod the Great constructed a sumptuous palace complex in classical Roman style")
+
+  # puts site1
+  # p site2
+  # p site3
+
+  puts site1.summarise
+  puts site2.summarise
+  puts site3.summarise
+
+end
