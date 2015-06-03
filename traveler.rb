@@ -6,7 +6,7 @@ class Traveler
 
   def initialize(name)
     @name = name
-    @itineraries = {} #key-value should be name => array of site objects
+    @itineraries = Hash.new(0) #key-value should be name => array of site objects
   end
 
   def add_itinerary(itinerary)
@@ -21,30 +21,9 @@ class Traveler
     @itineraries.each do |itinerary_name, sites_array|
       puts "#{itinerary_name}:"
       sites_array.each do |site_object|
-        puts site_object.name
+        puts "#{site_object.name}"
       end
-
     end
-  end
-
-  def sites_array_names
-    site_objects = @itineraries.values
-    site_objects.each do |site_object|
-      site_object.each { |s| puts s.name }
-    end
-  end
-
-  def itinerary_names
-    puts "/n*****"
-    @sites_array = []
-    @sites_array << @itineraries.sites
-    @sites_array.each do |site_object|
-      puts "#{site_object.name}"
-    end
-  end
-
-  def print_itinerary(itinerary)
-    #Write code to print a particular itinerary
   end
 
 end
@@ -73,9 +52,8 @@ if __FILE__ == $0
   traveler1.add_itinerary(it2)
   traveler1.add_itinerary(it3)
 
+  puts "\n#{traveler1.name}'s Itineraries:"
   traveler1.itinerary_listing
-
-  # traveler1.sites_array_names
 
 end
 

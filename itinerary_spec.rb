@@ -32,7 +32,7 @@ describe Itinerary do
     #The following does not work for some reason?
     it "prints a list of the names of the sites in its collection" do
 
-      expect(@it.site_names).to eq(@site1.name)
+      expect(puts @it.site_names).to eq(@site1.name)
 
     end
 

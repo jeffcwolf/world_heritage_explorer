@@ -30,12 +30,15 @@ class Itinerary
     # puts "Types of sites" -Where to process stats?
   end
 
+  def print_itinerary(itinerary)
+    #Write code to print a particular itinerary
+  end
+
   def site_names
     sites.each do |site_object|
       puts site_object.name
     end
   end
-
 
 end
 
@@ -49,7 +52,7 @@ if __FILE__ == $0
 
   it1.add_site(site1)
   it1.add_site(site2)
-  # it1.add_site(site3)
+  it1.add_site(site3)
 
   it1.print_stats
 
