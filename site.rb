@@ -10,9 +10,9 @@ class Site
     @description = description
   end
 
-  # def to_s
-  #   "The #{@type} site, #{@name}, is located in #{@country} (#{@region} region)."
-  # end
+  def to_s
+    "#{@name}, #{@country}, (#{@region}), #{@type}, '#{@description}'"
+  end
 
   def summarise
     "#{@name} (#{@country}): #{@description}."
@@ -45,7 +45,7 @@ if __FILE__ == $0
   # p site3
 
   puts site1.summarise
-  puts site2.summarise
-  puts site3.summarise
+  # puts site2.summarise
+  # puts site3.summarise
 
 end

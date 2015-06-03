@@ -9,6 +9,10 @@ class Itinerary
     @sites = []
   end
 
+  def to_s
+    "#{@name}: #{@sites}"
+  end
+
   def add_site(site)
     @sites << site
   end
@@ -26,7 +30,7 @@ class Itinerary
     puts "\n*****"
     puts "Stats for the #{@name} Itinerary:"
     puts "Number of sites: #{@sites.size}"
-    site_names
+    site_listing
     # puts "Types of sites" -Where to process stats?
   end
 
@@ -34,10 +38,8 @@ class Itinerary
     #Write code to print a particular itinerary
   end
 
-  def site_names
-    sites.each do |site_object|
-      puts site_object.name
-    end
+  def site_listing
+    @sites.each { |s| puts s.name }
   end
 
 end
@@ -54,7 +56,11 @@ if __FILE__ == $0
   it1.add_site(site2)
   it1.add_site(site3)
 
+  puts it1
+
+  it1.site_listing
   it1.print_stats
+
 
 end
 

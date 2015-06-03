@@ -51,7 +51,7 @@ describe Site do
 
     it "has a string representation" do
 
-      expect(@site.to_s).to eq("The cultural site, Aachen, is located in Germany (Europe and North America region).")
+      expect(@site.to_s).to eq("Aachen, Germany, (Europe and North America), cultural, 'It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany'")
 
     end
 

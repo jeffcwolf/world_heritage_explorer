@@ -27,12 +27,13 @@ describe Itinerary do
 
     before do
       @it.add_site(@site1)
+      # @it.add_site(@site2)
     end
 
     #The following does not work for some reason?
     it "prints a list of the names of the sites in its collection" do
 
-      expect(puts @it.site_names).to eq(@site1.name)
+      expect(@it.site_listing).to eq(@site1.name)
 
     end
 
