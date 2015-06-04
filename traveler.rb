@@ -17,6 +17,10 @@ class Traveler
   #   @itineraries.pop(itinerary)
   # end
 
+  def to_s
+    "#{@name}: #{@itineraries}"
+  end
+
   def itinerary_listing
     @itineraries.each do |itinerary_name, sites_array|
       puts "#{itinerary_name}:"

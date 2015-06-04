@@ -56,8 +56,6 @@ if __FILE__ == $0
   it1.add_site(site2)
   it1.add_site(site3)
 
-  puts it1
-
   it1.site_listing
   it1.print_stats
 
