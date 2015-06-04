@@ -22,33 +22,53 @@ doc = Nokogiri::XML(f)
 #Save site names to an array
 
 xml_names = []
-doc.xpath("/query/row/site").each do |node|
-    xml_names << node.text
+doc.xpath("/query/row/child::site").each do |node|
+    xml_names << node.text.to_sym
   end
 
 #Save country names to an array
 
-country_names = []
-doc.xpath("/query/row/states").each do |node|
-    country_names << node.text
+xml_states = []
+doc.xpath("/query/row/child::states").each do |node|
+    xml_states << node.text
   end
 
-#Try to save all the info in one go
+#Save region names to an array
 
-site_names = []
-doc.xpath("/query/row/site").each do |node|
-  puts node.text.to_sym
+xml_regions = []
+doc.xpath("/query/row/child::region").each do |node|
+  xml_regions << node.text
 end
 
-site_values = []
-doc.xpath("/query/row/site | /query/row/states | /query/row/region | /query/row/category | /query/row/short_description").each do |node|
-  puts node.text
+#Save category names to an array
+
+xml_categories = []
+doc.xpath("/query/row/child::category").each do |node|
+  xml_categories << node.text
 end
 
-#I want to create
+#Save short descriptions to an array
+
+xml_descriptions = []
+doc.xpath("/query/row/child::short_description").each do |node|
+  xml_descriptions << node.text
+end
+
+#Zip files to make useable array
+
+zip = xml_names.zip(xml_states, xml_regions, xml_categories, xml_descriptions)
+
+site_values = xml_states.zip(xml_regions, xml_categories, xml_descriptions)
+
+site_hash = {}
+
+#For each xml_name element, assign a single (each) zip2 element
+
+site_hash = Hash[xml_names.zip(site_values)]
 
 # Close file
 
 f.close
 
-puts site_values
+p site_hash
+
