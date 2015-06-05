@@ -1,6 +1,8 @@
 require_relative 'itinerary'
+require_relative 'searchable'
 
 class Traveler
+  include Searchable
 
   attr_accessor :name, :itineraries
 

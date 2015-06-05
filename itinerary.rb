@@ -46,9 +46,6 @@ end
 
 if __FILE__ == $0
 
-  site1 = Site.new("aachen Cathedral", "germany", "Europe and North America", "cultural", "It is Emperor Charlemagne´s own Palatine Chapel, which constitutes the nucleus of the Cathedral of Aachen, located in western Germany")
-  site2 = Site.new("wadden sea", "germany", "Europe and North America", "natural")
-  site3 = Site.new("masada", "israel", "Europe and North America", "natural", "Masada is a dramatically located site of great natural beauty overlooking the Dead Sea, a rugged natural fortress on which the Judaean king Herod the Great constructed a sumptuous palace complex in classical Roman style")
 
   it1 = Itinerary.new("Germany")
 
