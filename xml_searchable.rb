@@ -1,13 +1,53 @@
 require 'Nokogiri'
+require_relative 'site'
 
 module XmlSearchable
+
+
+
+  #CREATE SITE OBJECTS
+
+  @sites_array.each do |s|
+    Site.new(s[0], s[1], s[2], s[3], s[4])
+  end
 
   #Write module methods here that encapsulate search queries into the XML
   #(name, country, region, type, description="")
 
-  #CREATE SITES_HASH FROM XML FILE
+  #SEARCH METHODS
+  #Assume I get the user search value from @answer
 
-  def load_hash
+  #Search by Attribute (name, country, region, category)
+  def site_name_search(answer)
+    @sites_array.select { |value| value[0] == answer }
+    @sites_hash.fetch(answer)
+  end
+
+  def country_search(answer)
+    @sites_array.select { |value| value[1] == answer }
+    @sites_hash.values.select { |value| value[0] == answer }
+  end
+
+  def region_search(answer)
+    @sites_array.select { |value| value[2] == answer }
+    @sites_hash.values.select { |value| value[1] == answer }
+  end
+
+  def category_search(answer)
+    @sites_array.select { |value| value[3] == answer }
+    @sites_hash.values.select { |value| value[2] == answer }
+  end
+
+  def description_search(answer)
+    @sites_array.select { |value| value[4] =~ /#{answer}/ }
+    @sites_hash.values.select { |value| value[3] =~ /#{answer}/ }
+  end
+
+  def everything_search(answer)
+  end
+
+end
+
 
     #Open XML File with Nokogiri
 
@@ -18,7 +58,7 @@ module XmlSearchable
 
     xml_names = []
     doc.xpath("/query/row/child::site").each do |node|
-        xml_names << node.text.to_sym
+        xml_names << node.text
       end
 
     #Save country names to an array
@@ -49,12 +89,12 @@ module XmlSearchable
       xml_descriptions << node.text
     end
 
-    #Zip files to make useable array
+    #Zip files to make useable arrays
 
-    # test_zip = xml_names.zip(xml_states, xml_regions, xml_categories, xml_descriptions)
+    @sites_array = xml_names.zip(xml_states, xml_regions, xml_categories, xml_descriptions)
     site_values = xml_states.zip(xml_regions, xml_categories, xml_descriptions)
 
-    #Create final sites_hash instance variable
+    #Create sites_hash instance variable
 
     @sites_hash = {}
     @sites_hash = Hash[xml_names.zip(site_values)]
@@ -62,9 +102,17 @@ module XmlSearchable
     # Close file
 
     f.close
-  end
 
+@sites_array.each do |s|
+  Site.new(s[0], s[1], s[2], s[3], s[4])
+  puts "#{s[0]} object created!!"
 end
+
+
+
+
+
+
 
 
 
