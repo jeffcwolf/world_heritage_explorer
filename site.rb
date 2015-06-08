@@ -1,5 +1,4 @@
 class Site
-  require 'Nokogiri'
 
   attr_accessor :name, :country, :region, :type, :description
 

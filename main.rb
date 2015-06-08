@@ -62,6 +62,23 @@ loop do
     description_answer = gets.chomp
     @it_all.description_search(description_answer)
 
+  # Process other commands
+  when '6'
+    @it_all.find_random_site
+  when '7'
+    puts "How many random sites do you want in your itinerary (range is 1 to 1007)?"
+    size_answer = gets.chomp.to_i
+    @it_all.random_itinerary(size_answer)
+  when '8'
+    puts "Choose the criteria by which you want to build your search (country *or* region,  category, & description are the options). Note that search criteria must be typed in the following order, separated by commas and *without spaces* between commas: [country/region,category,description]. For example, search for cultural sites in Germany by typing 'Germany,cultural' or for natural sites in the Arab States with a keyword of 'rocks' by typing 'Arab States,natural,rocks'. Unused fields may be excluded:"
+    multi_answer = []
+    answer = gets.chomp
+    multi_answer = answer.split(',')
+    p multi_answer
+    # geo_answer = gets.chomp.capitalize
+    # cat_answer = gets.chomp.capitalize
+    # desc_answer = gets.chomp
+
   #Process quit command
   when 'quit', 'q', 'exit'
     puts "See you again soon!"

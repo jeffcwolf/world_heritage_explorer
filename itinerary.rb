@@ -1,3 +1,4 @@
+require 'Nokogiri'
 require_relative 'site'
 
 class Itinerary
@@ -78,6 +79,10 @@ class Itinerary
     puts "******"
   end
 
+  def multi_search(answer)
+    #Write code for multi-criteria search here
+  end
+
   def load_data
     #Open XML File with Nokogiri
 
@@ -143,10 +148,25 @@ class Itinerary
     return @sites
   end
 
+  def find_random_site
+    random_site = @sites[rand(0..1006)]
+    puts "\nYour Random Site:"
+    puts "\n******"
+    puts random_site
+    @random_itinerary << random_site
+  end
 
-  def generate_random_itinerary(size)
-    #Write code to generate a random itinerary of specified size
-    #i.e. a list of random sites, with a size and a name
+  def random_itinerary(size)
+    @random_itinerary = []
+    size.times { find_random_site }
+    puts "\n******"
+    puts "Stats for your Random Itinerary:"
+    puts "\******"
+    puts "Number of Sites: #{size}"
+    @random_itinerary.each do |result|
+      puts "\n******"
+      puts result
+    end
   end
 
   def print_stats
