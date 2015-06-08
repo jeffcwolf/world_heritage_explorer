@@ -1,5 +1,5 @@
-require_relative 'itinerary'
 require_relative 'searchable'
+require_relative 'itinerary'
 
 class Traveler
   include Searchable

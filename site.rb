@@ -1,4 +1,5 @@
 class Site
+  require 'Nokogiri'
 
   attr_accessor :name, :country, :region, :type, :description
 
@@ -17,6 +18,7 @@ class Site
   def summarise
     "#{@name} (#{@country}): #{@description}."
   end
+
 
   # def high_interest?
   #   @interest >= 7 ? true : false
