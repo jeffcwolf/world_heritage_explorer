@@ -79,10 +79,6 @@ class Itinerary
     puts "******"
   end
 
-  def multi_search(answer)
-    #Write code for multi-criteria search here
-  end
-
   def load_data
     #Open XML File with Nokogiri
 
@@ -189,15 +185,6 @@ end
 
 if __FILE__ == $0
 
-
-  it1 = Itinerary.new("Germany")
-
-  it1.add_site(site1)
-  it1.add_site(site2)
-  it1.add_site(site3)
-
-  it1.site_listing
-  it1.print_stats
 
 
 end
