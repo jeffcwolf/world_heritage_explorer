@@ -146,17 +146,6 @@ class Itinerary
     @sites = @xml_names.zip(@xml_states, @xml_regions, @xml_categories, @xml_descriptions)
     @site_values = @xml_states.zip(@xml_regions, @xml_categories, @xml_descriptions)
 
-    #Create sites_hash instance variable
-
-    @sites_hash = {}
-    @sites_hash = Hash[@xml_names.zip(@site_values)]
-
-    #Create Site Objects
-    @sites_objects = []
-    @sites.each do |s|
-      @sites_objects << Site.new(s[0], s[1], s[2], s[3], s[4])
-    end
-
     # Close file
 
     f.close

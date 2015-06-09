@@ -1,6 +1,5 @@
 require_relative 'traveler'
 require_relative 'itinerary'
-require_relative 'searchable'
 
 puts "Hi, what's your name, traveler?"
 user_name = gets.chomp
