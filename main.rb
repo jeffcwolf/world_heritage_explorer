@@ -3,7 +3,6 @@ require_relative 'itinerary'
 
 puts "Hi, what's your name, traveler?"
 user_name = gets.chomp
-user = Traveler.new(user_name)
 @it_all = Itinerary.new("all")
 
 puts "Loading World Heritage Sites data for you, #{user_name}..."

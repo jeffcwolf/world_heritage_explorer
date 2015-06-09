@@ -15,14 +15,6 @@ class Itinerary
     "#{@name}: #{@sites}"
   end
 
-  def add_site(site)
-    @sites << site
-  end
-
-  def remove_site(site)
-    #Write code here to remove site object from array of sites
-  end
-
   def save_results
     puts "Would you like to save these search results to a file? Type 'y' for yes and 'n' for no."
     answer = gets.chomp.downcase
@@ -181,10 +173,6 @@ class Itinerary
     puts "Number of sites: #{@sites.size}"
     site_listing
     # puts "Types of sites" -Where to process stats?
-  end
-
-  def print_itinerary(itinerary)
-    #Write code to print a particular itinerary
   end
 
   def site_listing
