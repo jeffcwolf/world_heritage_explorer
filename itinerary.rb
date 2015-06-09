@@ -1,4 +1,5 @@
 require 'Nokogiri'
+require 'yaml'
 require_relative 'site'
 
 class Itinerary
@@ -23,6 +24,17 @@ class Itinerary
     #Write code here to remove site object from array of sites
   end
 
+  def save_results
+    puts "Would you like to save these search results to a file? Type 'y' for yes and 'n' for no."
+    answer = gets.chomp.downcase
+    case answer
+    when 'y', 'yes'
+      f = File.open('country_results.yml', 'w')
+      YAML.dump(country_array)
+      f.close
+    end
+  end
+
   #SEARCH METHODS
   def site_search(answer)
     site_array = @sites.select { |value| value[0] == answer }
@@ -44,6 +56,16 @@ class Itinerary
     puts "\n******"
     puts "#{country_array.size} Matching Sites"
     puts "******"
+    puts "\nWould you like to save these search results to a file? Type 'y' for yes or 'n' for no."
+    answer = gets.chomp.downcase
+    case answer
+    when 'y', 'yes'
+      file_name = "results_#{Time.now}"
+      f = File.open(file_name, 'w')
+      YAML.dump(country_array, f)
+      f.close
+      puts "File saved as '#{file_name}'"
+    end
   end
 
   def region_search(answer)
@@ -180,12 +202,6 @@ class Itinerary
   def site_listing
     @sites.each { |s| puts s.name }
   end
-
 end
 
-if __FILE__ == $0
-
-
-
-end
 
