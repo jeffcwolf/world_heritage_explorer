@@ -61,9 +61,9 @@ class Itinerary
     case answer
     when 'y', 'yes'
       file_name = "results_#{Time.now}"
-      f = File.open(file_name, 'w')
-      YAML.dump(country_array, f)
-      f.close
+      File.open(file_name, 'w') do |f|
+        YAML.dump(country_array, f)
+      end
       puts "File saved as '#{file_name}'"
     end
   end
