@@ -15,19 +15,4 @@ describe Traveler do
 
   end
 
-  it "initializes with blank itineraries collection" do
-
-    expect(@traveler1.itineraries).to eq([])
-
-  end
-
-  it "adds an itinerary to itineraries collection" do
-
-    expect(@traveler1.add_itinerary(@it2)). to eq(@traveler1.itineraries << @it2)
-
-  end
-
-  it "lists associated itineraries from collection"
-
-
 end

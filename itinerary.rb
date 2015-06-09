@@ -1,6 +1,5 @@
 require 'Nokogiri'
 require 'yaml'
-require_relative 'site'
 
 class Itinerary
   attr_accessor :name, :description, :sites
