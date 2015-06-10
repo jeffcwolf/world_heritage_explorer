@@ -1,4 +1,3 @@
-require_relative 'traveler'
 require_relative 'itinerary'
 
 puts "Hi, what's your name, traveler?"
